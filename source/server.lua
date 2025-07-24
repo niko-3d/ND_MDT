@@ -23,6 +23,12 @@ lib.callback.register("ND_MDT:getUnitStatus", function(source)
     return activeUnits
 end)
 
+lib.callback.register("ND_MDT:get911Calls", function(source)
+    local player = Bridge.getPlayerInfo(source)
+    if not config.policeAccess[player.job] and not config.fireAccess[player.job] then return end
+    return emeregencyCalls
+end)
+
 -- Sets unit status in active units table and sends it to all clients.
 RegisterNetEvent("ND_MDT:setUnitStatus", function(unitStatus, statusCode)
     local src = source

@@ -26,7 +26,7 @@ function OpenMDT(status)
             displayUnits(units)
         end)
         lib.callback("ND_MDT:get911Calls", false, function(emeregencyCalls)
-            displayUnits(emeregencyCalls)
+            display911Calls(emeregencyCalls)
         end)
     end
 
